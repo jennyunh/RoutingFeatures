@@ -1,4 +1,4 @@
-import { useParams, Route } from "react-router-dom";
+import { useParams, Route, Link } from "react-router-dom";
 import Comments from "../components/comments/Comments";
 import { quoteList } from "../quoteList";
 import HighlightedQuote from "../components/quotes/HighlightedQuote"
@@ -20,10 +20,13 @@ return (
 {params.id}<br/>
 
 <HighlightedQuote text={targetQuote.text} author={targetQuote.author}/>
+<br/>
+
+<Link to={`/quote/${targetQuote.id}/comments`}>SHOW COMMENTS</Link>
 
 
 
-<Route path={`/quotes/${params.id}/comments`} exact>
+<Route path={`/quote/${params.id}/comments`} exact>
 <Comments/>
 </Route>
 
